@@ -56,12 +56,7 @@ public class JailMonkeyModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void isDebuggedMode(Promise p) {
-        boolean isDebuggedMode;
-        if (Debug.isDebuggerConnected()) {
-            isDebuggedMode = true;
-        } else {
-            isDebuggedMode = (this.reactContext.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        }
+        boolean isDebuggedMode = (this.reactContext.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;   
         p.resolve(isDebuggedMode);
     }
 
